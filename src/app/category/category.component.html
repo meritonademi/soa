@@ -1,0 +1,123 @@
+<div class="container">
+    <h1>Category Manager</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Category List</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of category">
+                  <td>{{ category.id }}</td>
+                  <td>{{ category.name }}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="openEditModal(category)">Edit</button>
+                    <button class="btn btn-danger btn-sm" (click)="openDeleteModal(category)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-success" (click)="openCreateModal()">Create Category</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Create Category Modal -->
+    <div class="modal" tabindex="-1" role="dialog" *ngIf="isCreateModalVisible" [ngClass]="{'show-modal': isCreateModalVisible}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create Category</h5>
+            <button type="button" class="close" aria-label="Close" (click)="cancelCreate()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newCategory.name" name="name" required>
+              </div>
+              
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="cancelCreate()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="createCategory()">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Edit Category Modal -->
+    <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedCategory" [ngClass]="{'show-modal': isEditModalVisible}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Category</h5>
+            <button type="button" class="close" aria-label="Close" (click)="cancelUpdate()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <form>
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control" id="name" [(ngModel)]="selectedCategory.name" name="name" required>
+                  </div>
+                
+                  <!-- <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea class="form-control" id="description" [(ngModel)]="selectedCategory.description" name="description"></textarea> -->
+      
+                  <!-- <textarea class="form-control" id="description" [(ngModel)]="selectedCategory.description" name="description"></textarea> -->
+                  <!-- </div> -->
+                  </form>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
+                  <button type="button" class="btn btn-primary" (click)="updateCategory()">Save Changes</button>
+                  
+                 </div>
+                  <!-- </div> -->
+                  <!-- </div> -->
+
+
+                  <!-- </div> -->
+                    <!-- Delete Category Modal -->
+                    <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedCategory"  [ngClass]="{'show-modal': isDeleteModalVisible}">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Delete Category</h5>
+                            <button type="button" class="close" aria-label="Close" (click)="cancelDelete()">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Are you sure you want to delete this Category?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteCategory()">Delete</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- </div> -->
+                
+       

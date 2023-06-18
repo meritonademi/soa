@@ -4,7 +4,6 @@ export interface Task {
   description: string;
   deadline: Date;
   isCompleted: boolean;
-
 }
 
 

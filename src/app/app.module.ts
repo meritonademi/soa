@@ -6,11 +6,13 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { TaskManagerComponent } from './task-management/task-manager.component';
 import {FormsModule} from "@angular/forms";
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskManagerComponent
+    TaskManagerComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
