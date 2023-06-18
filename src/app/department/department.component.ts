@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Department } from '../models/department';
+import { DepartmentService } from '../services/department.service';
 
 @Component({
   selector: 'app-department',
@@ -8,38 +9,38 @@ import { Department } from '../models/department';
 })
 export class DepartmentComponent {
 
-  departament: Department[] = [];
-  newDepartament: Department = {id: '', name: '', deadline: new Date(), isCompleted: false}
-  selectedDepartament: Department | null = null;
+  department: Department[] = [];
+  newDepartment: Department = {name: ''}
+  selectedDepartment: Department | null = null;
   isCreateModalVisible = false;
   isEditModalVisible = false;
   isDeleteModalVisible = false;
 
-  constructor(private departamentService: DepartamentService) {}
+  constructor(private departmentService: DepartmentService) {}
 
   ngOnInit() {
-    this.getDepartament();
+    this.getDepartment();
   }
 
-  getTasks(): void {
-    this.departamentService.getDepartament().subscribe((departament: Department[]) => this.departaments = departaments);
+  getDepartment(): void {
+    this.departmentService.getDepartments().subscribe((department: Department[]) => this.department = department);
   }
 
-  createTask(): void {
-    this.taskService.addTask(this.newTask).subscribe((task: Task) => {
-      this.tasks.push(task);
-      this.newTask = {name: '', description: '', deadline: new Date(), isCompleted: false}
+  createDepartments(): void {
+    this.departmentService.addDepartment(this.newDepartment).subscribe((department: Department) => {
+      this.department.push(department);
+      this.newDepartment = {name: ''}
       this.isCreateModalVisible = false;
     });
   }
 
-  updateTask(): void {
-    if (this.selectedTask) {
-      this.taskService.updateTask(this.selectedTask).subscribe(() => {
-        const index = this.tasks.findIndex((task:Task) => task.id === this.selectedTask!.id);
+  updateDepartments(): void {
+    if (this.selectedDepartment) {
+      this.departmentService.updateDepartment(this.selectedDepartment).subscribe(() => {
+        const index = this.department.findIndex((department:Department) =>department.id === this.selectedDepartment!.id);
         if (index >= 0) {
-          this.tasks[index] = this.selectedTask!;
-          this.selectedTask = null;
+          this.department[index] = this.selectedDepartment!;
+          this.selectedDepartment = null;
           this.isEditModalVisible = false;
         }
       });
@@ -47,50 +48,50 @@ export class DepartmentComponent {
   }
 
 
-  deleteTask(): void {
-    const task: Task | null = this.selectedTask;
-    if (task && task.id != null) {
-      this.taskService.deleteTask(task).subscribe(() => {
-        this.tasks = this.tasks.filter((t:Task) => t.id !== task.id);
-        if (this.selectedTask === task) {
-          this.selectedTask = null;
+  deleteDepartment(): void {
+    const department: Department | null = this.selectedDepartment;
+    if (department && department.id != null) {
+      this.departmentService.deleteDepartment(department).subscribe(() => {
+        this.department = this.department.filter((t:Department) => t.id !== department.id);
+        if (this.selectedDepartment === department) {
+          this.selectedDepartment = null;
         }
         this.isDeleteModalVisible = false;
       });
     } else {
-      console.log('No task selected.');
+      console.log('No department selected.');
     }
   }
 
   openCreateModal(): void {
-    this.newTask = {name: '', description: '', deadline: new Date(), isCompleted: false}
+    this.newDepartment = {name: ''}
     this.isCreateModalVisible = true;
     console.log(this.isCreateModalVisible)
   }
 
-  openEditModal(task: Task): void {
-    this.selectedTask = Object.assign({}, task);
+  openEditModal(department: Department): void {
+    this.selectedDepartment = Object.assign({}, department);
     this.isEditModalVisible = true;
   }
 
-  openDeleteModal(task: Task): void {
-    this.selectedTask = task;
+  openDeleteModal(department: Department): void {
+    this.selectedDepartment = department;
     this.isDeleteModalVisible = true;
   }
 
   cancelUpdate(): void {
-    this.selectedTask = null;
+    this.selectedDepartment = null;
     this.isEditModalVisible = false;
   }
 
   cancelCreate(): void {
-    this.selectedTask = null;
+    this.selectedDepartment = null;
     this.isCreateModalVisible = false;
   }
 
 
   cancelDelete(): void {
-    this.selectedTask = null;
+    this.selectedDepartment = null;
     this.isDeleteModalVisible = false;
   }
 }

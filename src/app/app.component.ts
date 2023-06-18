@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Task} from './task';
+import {Department} from './models/department';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {Task} from './task';
 })
 export class AppComponent {
   title = 'task-managment-system';
-  tasks: Task[] = [];
+  tasks: Department[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   getTask() {
-    this.http.get<Task[]>('https://localhost:7053/api/task').subscribe((data: Task[]) => {
+    this.http.get<Department[]>('https://localhost:7105/api/departments').subscribe((data: Department[]) => {
       this.tasks = data;
     });
   }
