@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { assets } from '../models/assets';
 import { AssetsService } from '../services/assets.service';
 
+
 @Component({
   selector: 'app-asset',
   templateUrl: './assets.component.html',
-  styleUrls: ['./assets.component.css']
+  styleUrls: ['./assets.component.scss']
 })
 export class AssetsComponent {
   assets: assets[] = [];
@@ -26,7 +27,7 @@ export class AssetsComponent {
   }
 
   createAsset(): void {
-    this.assetService.addAsset(this.newAsset).subscribe((assets: assets) => {
+    this.assetService.addAssets(this.newAsset).subscribe((assets: assets) => {
       this.assets.push(assets);
       this.newAsset = { id: 0, name: '', serialNr: '', categoryId: 0, category: { name: '', id: 0 } };
       this.isCreateModalVisible = false;
