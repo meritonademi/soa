@@ -10,7 +10,7 @@ export class AssetsService {
   addAsset(newAsset: assets) {
       throw new Error('Method not implemented.');
   }
-  private apiUrl = 'https://localhost:7105/api/categories';
+  private apiUrl = 'https://localhost:7105/api/assets';
 
   constructor(private http: HttpClient) {}
 

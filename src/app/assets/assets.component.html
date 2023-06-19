@@ -59,17 +59,17 @@
               </div>
               <div class="form-group">
                 <label for="serialnr">SerialNr</label>
-                <input type="text" class="form-control" id="serialnr" [(ngModel)]="newAsset.SerialNr" name="serialnr" required >
+                <input type="text" class="form-control" id="serialnr" [(ngModel)]="newAsset.serialNr" name="serialnr" required >
               </div>
               <div class="form-group">
                 <label for="categoryname">CategoryName</label>
-                <input type="text" class="form-control" id="categoryname" [(ngModel)]="newAsset.CategoryName" name="categoryname" required >
+                <input type="text" class="form-control" id="categoryname" [(ngModel)]="newAsset.category" name="categoryname" required >
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="cancelCreate()">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="createAssets()">Create</button>
+            <button type="button" class="btn btn-primary" (click)="createAsset()">Create</button>
           </div>
         </div>
       </div>
@@ -98,9 +98,8 @@
         </div>
         <div class="form-group">
           <label for="categoryname">CategoryName</label>
-          <input type="text" class="form-control" id="categoryname" [(ngModel)]="newAsset.CategoryName" name="categoryname" required >
-        </div>
-            </form>
+          <input type="text" class="form-control" id="categoryname" [(ngModel)]="newAsset.category" name="categoryname" required >
+        </div> 
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
