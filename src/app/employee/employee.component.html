@@ -19,6 +19,8 @@
                 <tr *ngFor="let task of employee">
                   <td>{{ task.id }}</td>
                   <td>{{ task.name }}</td>
+                  <td>{{ task.surname }}</td>
+                  <td>{{ task.tel }}</td>
                   <td>
                     <button class="btn btn-primary btn-sm" (click)="openEditModal(task)">Edit</button>
                     <button class="btn btn-danger btn-sm" (click)="openDeleteModal(task)">Delete</button>
@@ -48,6 +50,15 @@
             <form>
               <div class="form-group">
                 <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newEmployee.name" name="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Surname</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newEmployee.name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Phone nr</label>
                 <input type="text" class="form-control" id="name" [(ngModel)]="newEmployee.name" name="name" required>
               </div>
     
