@@ -17,8 +17,7 @@ import { AssetsComponent } from './assets/assets.component';
     TaskManagerComponent,
     DepartmentComponent,
     CategoryComponent,
-    EmployeeComponent
-    CategoryComponent,
+    EmployeeComponent,
     AssetsComponent
   ],
   imports: [
