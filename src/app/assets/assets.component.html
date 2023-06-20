@@ -1,0 +1,134 @@
+<div class="container">
+    <h1>Assets Manager</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Assets List</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>SerialNr</th>
+                  <th>CategoryID</th>
+                  <th>CategoryName</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let task of assets">
+                  <td>{{ task.id }}</td>
+                  <td>{{ task.name }}</td>
+                  <td>{{ task.serialnr }}</td>
+                  <td>{{ task.categoryid }}</td>
+                  <td>{{ task.categoryname }}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="openEditModal(task)">Edit</button>
+                    <button class="btn btn-danger btn-sm" (click)="openDeleteModal(task)">Delete</button>
+                    <!-- <button class="btn btn-danger btn-sm" (click)="openAddModal(task)">Add</button> -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-success" (click)="openCreateModal()">Create Asset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Create Asset Modal -->
+    <div class="modal" tabindex="-1" role="dialog" *ngIf="isCreateModalVisible" [ngClass]="{'show-modal': isCreateModalVisible}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create Assets</h5>
+            <button type="button" class="close" aria-label="Close" (click)="cancelCreate()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newAsset.name" name="name" required >
+              </div>
+              <div class="form-group">
+                <label for="serialnr">SerialNr</label>
+                <input type="text" class="form-control" id="serialnr" [(ngModel)]="newAsset.serialNr" name="serialnr" required >
+              </div>
+              <div class="form-group">
+                <label for="categoryname">CategoryName</label>
+                <input type="text" class="form-control" id="categoryname" [(ngModel)]="newAsset.category" name="categoryname" required >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="cancelCreate()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="createAsset()">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Edit Asset Modal -->
+    <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedAssets"  [ngClass]="{'show-modal': isEditModalVisible}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Asset</h5>
+            <button type="button" class="close" aria-label="Close" (click)="cancelUpdate()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newAsset.name" name="name" required>
+            </div>
+          </div>
+        <div class="form-group">
+          <label for="serialnr">SerialNr</label>
+          <input type="text" class="form-control" id="serialnr" [(ngModel)]="newAsset.SerialNr" name="serialnr" required >
+        </div>
+        <div class="form-group">
+          <label for="categoryname">CategoryName</label>
+          <input type="text" class="form-control" id="categoryname" [(ngModel)]="newAsset.category" name="categoryname" required >
+        </div> 
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="updateAsset()">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    
+  
+              </div>
+              <!-- Delete Asset Modal -->
+              <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedAssets"  [ngClass]="{'show-modal': isDeleteModalVisible}">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Delete Asset</h5>
+                      <button type="button" class="close" aria-label="Close" (click)="cancelDelete()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to delete this asset?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+                      <button type="button" class="btn btn-danger" (click)="deleteAsset()">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+  
