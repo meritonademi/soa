@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { assets } from '../models/assets';
 import { AssetsService } from '../services/assets.service';
 
-
 @Component({
   selector: 'app-asset',
   templateUrl: './assets.component.html',
-  styleUrls: ['./assets.component.scss']
+  styleUrls: ['./assets.component.css']
 })
 export class AssetsComponent {
   assets: assets[] = [];
@@ -86,11 +85,8 @@ export class AssetsComponent {
     this.isCreateModalVisible = false;
   }
 
-
   cancelDelete(): void {
     this.selectedAsset = null;
     this.isDeleteModalVisible = false;
   }
 }
-
-   

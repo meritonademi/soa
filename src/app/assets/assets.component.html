@@ -22,9 +22,9 @@
                 <tr *ngFor="let task of assets">
                   <td>{{ task.id }}</td>
                   <td>{{ task.name }}</td>
-                  <td>{{ task.serialnr }}</td>
-                  <td>{{ task.categoryid }}</td>
-                  <td>{{ task.categoryname }}</td>
+                  <td>{{ task.serialNr }}</td>
+                  <td>{{ task.categoryId }}</td>
+                  <td>{{ task.category }}</td>
                   <td>
                     <button class="btn btn-primary btn-sm" (click)="openEditModal(task)">Edit</button>
                     <button class="btn btn-danger btn-sm" (click)="openDeleteModal(task)">Delete</button>
@@ -76,7 +76,7 @@
     </div>
   
     <!-- Edit Asset Modal -->
-    <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedAssets"  [ngClass]="{'show-modal': isEditModalVisible}">
+    <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedAsset"  [ngClass]="{'show-modal': isEditModalVisible}">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -91,27 +91,21 @@
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" [(ngModel)]="newAsset.name" name="name" required>
             </div>
-          </div>
         <div class="form-group">
           <label for="serialnr">SerialNr</label>
-          <input type="text" class="form-control" id="serialnr" [(ngModel)]="newAsset.SerialNr" name="serialnr" required >
+          <input type="text" class="form-control" id="serialnr" [(ngModel)]="newAsset.serialNr" name="serialnr" required >
         </div>
         <div class="form-group">
           <label for="categoryname">CategoryName</label>
           <input type="text" class="form-control" id="categoryname" [(ngModel)]="newAsset.category" name="categoryname" required >
         </div> 
-            </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
             <button type="button" class="btn btn-primary" (click)="updateAsset()">Save Changes</button>
-          </div>
-        </div>
-      </div>
+            </div>
     
-  
-              </div>
               <!-- Delete Asset Modal -->
-              <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedAssets"  [ngClass]="{'show-modal': isDeleteModalVisible}">
+              <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedAsset"  [ngClass]="{'show-modal': isDeleteModalVisible}">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
