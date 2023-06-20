@@ -48,14 +48,14 @@
             <form>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="newDepartment.name" name="name" required>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newEmployee.name" name="name" required>
               </div>
     
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="cancelCreate()">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="createDepartments()">Create</button>
+            <button type="button" class="btn btn-primary" (click)="createEmployee()">Create</button>
           </div>
         </div>
       </div>
@@ -75,20 +75,20 @@
             <form>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="selectedDepartment.name" name="name" required>
+                <input type="text" class="form-control" id="name" [(ngModel)]=" selectedEmployee.name " name="name" required>
             </div>
             </form>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="updateDepartments()">Save Changes</button>
+            <button type="button" class="btn btn-primary" (click)="updateEmployee()">Save Changes</button>
             </div>
             </div>
             </div>
 
               </div>
               <!-- Delete Employee Modal -->
-              <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedDepartment"  [ngClass]="{'show-modal': isDeleteModalVisible}">
+              <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedEmployee"  [ngClass]="{'show-modal': isDeleteModalVisible}">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -102,7 +102,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
-                      <button type="button" class="btn btn-danger" (click)="deleteDepartment()">Delete</button>
+                      <button type="button" class="btn btn-danger" (click)="deleteEmployee()">Delete</button>
                     </div>
                   </div>
                 </div>

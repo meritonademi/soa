@@ -8,13 +8,15 @@ import { TaskManagerComponent } from './task-management/task-manager.component';
 import {FormsModule} from "@angular/forms";
 import { DepartmentComponent } from './department/department.component';
 import { CategoryComponent } from './category/category.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskManagerComponent,
     DepartmentComponent,
-    CategoryComponent
+    CategoryComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
