@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <!-- Create Task Modal -->
+    <!-- Create Department Modal -->
     <div class="modal" tabindex="-1" role="dialog" *ngIf="isCreateModalVisible" [ngClass]="{'show-modal': isCreateModalVisible}">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -61,12 +61,12 @@
       </div>
     </div>
 
-    <!-- Edit Task Modal -->
+    <!-- Edit Department Modal -->
     <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedDepartment"  [ngClass]="{'show-modal': isEditModalVisible}">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Edit Task</h5>
+            <h5 class="modal-title">Edit Department</h5>
             <button type="button" class="close" aria-label="Close" (click)="cancelUpdate()">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -87,7 +87,7 @@
             </div>
 
               </div>
-              <!-- Delete Task Modal -->
+              <!-- Delete Department Modal -->
               <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedDepartment"  [ngClass]="{'show-modal': isDeleteModalVisible}">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
