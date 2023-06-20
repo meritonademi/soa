@@ -1,10 +1,10 @@
 <div class="container">
-    <h1>Department Manager</h1>
+    <h1>Employee Manager</h1>
     <div class="row">
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Department List</h3>
+            <h3 class="card-title">Employee List</h3>
           </div>
           <div class="card-body">
             <table class="table table-striped">
@@ -16,7 +16,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let task of department">
+                <tr *ngFor="let task of employee">
                   <td>{{ task.id }}</td>
                   <td>{{ task.name }}</td>
                   <td>
@@ -28,18 +28,18 @@
             </table>
           </div>
           <div class="card-footer">
-            <button class="btn btn-success" (click)="openCreateModal()">Create Department</button>
+            <button class="btn btn-success" (click)="openCreateModal()">Create Employee</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Create Department Modal -->
+    <!-- Create Employee Modal -->
     <div class="modal" tabindex="-1" role="dialog" *ngIf="isCreateModalVisible" [ngClass]="{'show-modal': isCreateModalVisible}">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Create Department</h5>
+            <h5 class="modal-title">Create Employee</h5>
             <button type="button" class="close" aria-label="Close" (click)="cancelCreate()">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -48,25 +48,25 @@
             <form>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="newDepartment.name" name="name" required>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newEmployee.name" name="name" required>
               </div>
     
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="cancelCreate()">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="createDepartments()">Create</button>
+            <button type="button" class="btn btn-primary" (click)="createEmployee()">Create</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Edit Department Modal -->
+    <!-- Edit Employee Modal -->
     <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedDepartment"  [ngClass]="{'show-modal': isEditModalVisible}">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Edit Department</h5>
+            <h5 class="modal-title">Edit Employee</h5>
             <button type="button" class="close" aria-label="Close" (click)="cancelUpdate()">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -75,34 +75,34 @@
             <form>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="selectedDepartment.name" name="name" required>
+                <input type="text" class="form-control" id="name" [(ngModel)]=" selectedEmployee.name " name="name" required>
             </div>
             </form>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="updateDepartments()">Save Changes</button>
+            <button type="button" class="btn btn-primary" (click)="updateEmployee()">Save Changes</button>
             </div>
             </div>
             </div>
 
               </div>
-              <!-- Delete Department Modal -->
-              <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedDepartment"  [ngClass]="{'show-modal': isDeleteModalVisible}">
+              <!-- Delete Employee Modal -->
+              <div class="modal" tabindex="-1" role="dialog" *ngIf="selectedEmployee"  [ngClass]="{'show-modal': isDeleteModalVisible}">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Delete Department</h5>
+                      <h5 class="modal-title">Delete Employee</h5>
                       <button type="button" class="close" aria-label="Close" (click)="cancelDelete()">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p>Are you sure you want to delete this department?</p>
+                      <p>Are you sure you want to delete this employee?</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
-                      <button type="button" class="btn btn-danger" (click)="deleteDepartment()">Delete</button>
+                      <button type="button" class="btn btn-danger" (click)="deleteEmployee()">Delete</button>
                     </div>
                   </div>
                 </div>

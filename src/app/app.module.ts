@@ -7,6 +7,7 @@ import { TaskManagerComponent } from './task-management/task-manager.component';
 import {FormsModule} from "@angular/forms";
 import { DepartmentComponent } from './department/department.component';
 import { CategoryComponent } from './category/category.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { AssetsComponent } from './assets/assets.component';
 
 
@@ -15,6 +16,8 @@ import { AssetsComponent } from './assets/assets.component';
     AppComponent,
     TaskManagerComponent,
     DepartmentComponent,
+    CategoryComponent,
+    EmployeeComponent
     CategoryComponent,
     AssetsComponent
   ],
