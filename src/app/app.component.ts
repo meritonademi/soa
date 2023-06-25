@@ -12,7 +12,7 @@ import { assets } from './models/assets';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'task-managment-system';
+  title = 'Asset-Management-System';
   tasks: Department[] = [];
   categories : Category[] = [];
   employees : Employee[]=[];
